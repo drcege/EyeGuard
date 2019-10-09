@@ -15,7 +15,11 @@ namespace EyeGuard.UI
     /// </summary>
     public partial class LockScreen : Window
     {
-        public LockScreen()
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="mainWindow">此参数是为了让主窗口获得焦点</param>
+        public LockScreen(MainWindow mainWindow)
         {
             if (Function == true)
             {
@@ -26,6 +30,8 @@ namespace EyeGuard.UI
             InitializeComponent();
             PromptText.Visibility = Visibility.Hidden;
             Position();
+            
+            mainWindow.Focus();
         }
 
 
@@ -176,6 +182,7 @@ namespace EyeGuard.UI
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Focus();
             if ((int)md.LockMode == 2)
             {
                 img.Source = new BitmapImage(new Uri(path + "Resources/wallpaper.jpg"));

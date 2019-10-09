@@ -175,7 +175,7 @@ namespace EyeGuard
             if (LockScreen.Function == false)
             {
                 md.State = (state)1;
-                LockScreen ls = new LockScreen();
+                LockScreen ls = new LockScreen(this);
                 ls.md = md;
                 ls.Show();
             }
